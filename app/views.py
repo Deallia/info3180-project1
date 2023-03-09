@@ -4,9 +4,12 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
-
+import os
 from app import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for,send_from_directory, flash
+from werkzeug.utils import secure_filename
+from .form import *
+from .model import *
 
 
 ###
@@ -24,6 +27,47 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+
+@app.route('/properties/create', methods=['POST', 'GET'])
+def addnewproperty():
+    """Render the website's new property form page."""
+    form=PropertyForm()
+    if form.validate_on_submit():
+        title=form.title.data
+        bedroomNo=form.bedroom.data
+        bathroomNo=form.bathroom.data
+        location=form.location.data
+        price=form.price.data
+        type=form.type.data
+        description=form.description.data
+        photo=form.photo.data
+        filename = secure_filename(photo.filename) 
+        photo.save(os.path.join(app.config['IMG_FOLDER'], filename))
+        property = Property(title,bedroomNo,bathroomNo,location,price,type,description,filename)
+        db.session.add(property)
+        db.session.commit()
+        flash("Property added Successfully", 'success')
+        redirect("/properties")
+    return render_template('addproperty.html', form=form)
+
+
+@app.route('/properties')
+def displayproperties():
+    """Render the website's view properties page."""
+    properties = db.session.execute(db.select(Property)).scalars()
+    return render_template('properties.html', properties=properties)
+
+
+@app.route('/properties/<propertyid>')
+def viewproperty():
+    """Render the website's about page."""
+    return render_template('about.html', name="Mary Jane")
+
+def get_img(property):
+    #property = db.get_or_404(Property, id)
+    filename= property.photo
+    return send_from_directory(os.path.join(os.getcwd(), app.config['IMG_FOLDER']), filename)
+    
 
 ###
 # The functions below should be applicable to all Flask apps.
