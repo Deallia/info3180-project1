@@ -5,7 +5,11 @@
 <div id="img-container">
     <ul  class="img-grid">
     {% for property in properties %}
-       <li><img src="{{ url_for('get_img', property=property) }}"  height="200px" width="200px"/>
+       <li><img src="{{ url_for('get_img', filename=property.photo) }}"  height="200px" width="200px"/>
+        <h5>{{property.title }}</h5>
+        <form action="{{url_for('viewproperty', propertyid=property.id)}}">
+            <button class="p-btn" type="submit" ="">View Details</button>
+        </form>
         </li> 
     {% endfor %}
 </ul>

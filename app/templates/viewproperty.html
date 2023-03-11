@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<img src="{{ url_for('get_img', filename=property.photo) }}"  height="300px" width="300px"/>
+<h1>{{property.title}}</h1>
+<p>{{property.bedroom}}</p>
+<p>{{property.bathroom}}</p>
+<p>{{property.location}}</p>
+<p>{{property.price}}</p>
+<p>{{property.type}}</p>
+<p>{{property.description}}</p>
+{% endblock %}
