@@ -2,14 +2,20 @@
 
 {% block main %}
 {% if properties%}
-<div id="img-container">
+
+    <h1 id="p-heading">Properties</h1>
     <ul  class="img-grid">
+    
     {% for property in properties %}
-       <li><img src="{{ url_for('get_img', filename=property.photo) }}"  height="200px" width="200px"/>
-        <h5>{{property.title }}</h5>
-        <form action="{{url_for('viewproperty', propertyid=property.id)}}">
-            <button class="p-btn" type="submit" ="">View Details</button>
-        </form>
+       <li>
+            <div class="card"><img src="{{ url_for('get_img', filename=property.photo) }}"  height="200px" width="100%"/>
+                <h5>{{property.title }}</h5>
+                <p>{{property.location }}</p>
+                <button class="price" disabled>{{property.price }}</button>
+                <form action="{{url_for('viewproperty', propertyid=property.id)}}">
+                    <button class="p-btn" type="submit" ="">View Property</button>
+                </form>
+            </div>
         </li> 
     {% endfor %}
 </ul>
