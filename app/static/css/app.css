@@ -3,7 +3,7 @@ body {
     background-color:rgb(236, 236, 236);
 }
 #p-heading{
-    margin-left: 100px;
+    margin-left: 60px;
 }
 .img-grid{
     display: flex;
@@ -14,18 +14,21 @@ body {
     list-style: none;
 }
 .card{
-    padding: 10px;
-    border-style: solid;
-    border-width: 50%;
-    border-color:#E2E8F0;
-    border-radius: 5px;
+   width: 320px;
     box-shadow: 0 8px 8px -4px #a5a8ac;  
   
     
 }
+.inner-card{
+    padding: 10px;
+}
+.material-icons{
+    font-size: 15px;
+    color:#a5a8ac;
+
+}
 .price{
     border-radius: 20px;
-    background-color: rgb(73, 143, 223);
     width: 80px;
     height:22px; 
     text-align: center;
@@ -33,13 +36,17 @@ body {
     color: white;
     margin-bottom: 10px;
     padding-bottom: 19px;
+    border-color: #14b298;
+    background-color: #14b298;
+    border-style: solid;
 }
 
 .p-btn{
     width:100%;
-    background-color: #069e85;
-    border-color: #069e85;
+    background-color: #2079f5;
+    border-color: #2079f5;
     color: white;
+    border-style: solid;
 }
 .p-container{
     width:750px;
@@ -47,9 +54,22 @@ body {
     display: flex;
     flex-direction: row; 
     background-color: white;
+
 }
 .details{
     padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 2px;
+}
+
+.e-btn{
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-color: #2079f5;
+    background-color: #2079f5;
+    color: white;
+    border-style: solid;
 }
 
 .type{
@@ -63,21 +83,34 @@ body {
     color: white;
     margin-bottom: 10px;
     padding-bottom: 19px;
+    border-style: solid;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: #a5a8ac;
+  font-size: 15px;
+}
+
 .p-form{
-    width:75%;
+    width:790px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+    padding-right: 100px;
+    padding-left: 50px;
 }
 #form-2{
     display: flex;
-    /* flex-direction: row; */
-    /* column-gap: 50px;*/
-    /* justify-content: space-evenly;  */
-   /* width: 100%;*/
     flex-wrap: wrap;
+    flex-direction: row; 
+    column-gap: 40px;
+    width: 100%;
+    
 }
  /* #form-2{
     width:50px;
-} */ */
+} */ 

@@ -15,7 +15,7 @@ class Property(db.Model):
     location= db.Column(db.String(80))
     price = db.Column(db.String(128))
     type= db.Column(db.String(20))
-    description = db.Column(db.String(128))
+    description = db.Column(db.String(500))
     photo=db.Column(db.String(80))
 
     def __init__(self,title,bedroomNo, bathroomNo, location, price, type, description, photo):

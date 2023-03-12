@@ -7,39 +7,39 @@
 <form  method="post"  enctype="multipart/form-data">
     {{ form.csrf_token }}
     <div class="form-group">
-      {{ form.title.label(class="form-label") }}
+      <b>{{ form.title.label(class="form-label") }}</b>
         {{ form.title(class='form-control') }}
       </div>
       <div class="form-group">
-        {{ form.description.label(class="form-label") }}
+        <b>{{ form.description.label(class="form-label") }}</b>
         {{ form.description(class='form-control', rows="4") }} 
         </div>
     
   <div id="form-2">    
       <div class="form-group">
-          {{ form.bedroom.label(class="form-label") }}
-          {{ form.bedroom(class='form-control') }}
+          <b>{{ form.bedroom.label(class="form-label") }}</b>
+          {{ form.bedroom(class='form-control', placeholder="2") }}
     
         </div>
       <div class="form-group">
-          {{ form.bathroom.label(class="form-label") }}
-          {{ form.bathroom(class='form-control') }}
+        <b>  {{ form.bathroom.label(class="form-label") }} </b>
+          {{ form.bathroom(class='form-control', placeholder="1") }}
         </div>   
         <div class="form-group">
-          {{ form.price.label(class="form-label", placeholder='Choose type') }}
-            {{ form.price(class='form-control') }}
+          <b>{{ form.price.label(class="form-label", placeholder='Choose type') }}</b>
+            {{ form.price(class='form-control', placeholder="5,000,000") }}
           </div>
         <div class="form-group">
-            {{ form.type.label(class="form-label") }}
+           <b> {{ form.type.label(class="form-label") }}</b>
             {{ form.type(class='form-control') }}
         </div>
   </div> 
       <div class="form-group">
-        {{ form.location.label(class="form-label") }}
-          {{ form.location(class='form-control') }}
+       <b> {{ form.location.label(class="form-label") }} </b>
+          {{ form.location(class='form-control' , placeholder="10 waterloo Rd, Kingston") }}
         </div>
     <div class="form-group">
-        {{ form.photo.label(class="form-label") }} {{ form.photo(class="form-control") }}
+       <b> {{ form.photo.label(class="form-label") }}</b> {{ form.photo(class="form-control", placeholder="Browse") }}
     </div>
     <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">Add Property</button>
   </form>

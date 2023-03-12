@@ -2,13 +2,21 @@
 
 {% block main %}
 <div class="p-container">
-    <img id="property" src="{{ url_for('get_img', filename=property.photo) }}"  height="300px" width="300px"/>
-    <div class="details"><h1>{{property.title}}</h1>
+    <img id="property" src="{{ url_for('get_img', filename=property.photo) }}"  height="350px" width="350px"/>
+    <div class="details"><h4>{{property.title}}</h4>
         <button class="price" disabled>${{property.price }}</button>
         <button class="type" disabled>{{property.type }}</button>
         <p>{{property.description}}</p>
-        <p>{{property.bedroomNo}} Bedrooms</p> <p>{{property.bathroomNo}} Bathrooms</p>
-        <p>{{property.location}}</p>
+
+        <div style="display: flex; column-gap: 20px;">
+        <p > {{property.bedroomNo}} <span class="material-symbols-outlined">
+            bed</span> Bedrooms</p> 
+        <p > {{property.bathroomNo}} <span class="material-symbols-outlined">
+            bathtub</span></i> Bathrooms</p>
+        </div>
+
+        <p><i class="material-icons">&#xe55f;</i>{{property.location}}</p>
+        <button class="e-btn" type="submit">Email Realtor</button>
     </div>
 </div>
 {% endblock %}
